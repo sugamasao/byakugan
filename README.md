@@ -1,5 +1,5 @@
 # byakugan
-byakugan is "白眼"
+byakugan is "白眼". konoha nite saikyo
 
 sample.rb
 
