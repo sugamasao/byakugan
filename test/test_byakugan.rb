@@ -1,4 +1,5 @@
 require 'byakugan'
+require 'test/unit'
 
 class ByakuganTest < Test::Unit::TestCase
   module Foo
@@ -30,7 +31,7 @@ class ByakuganTest < Test::Unit::TestCase
     # call m3
     Foo::Bar.m4
     b.stop!
-    
+
     ret = b.instance_variable_get(:@target)
     assert(ret[Foo::Bar].i_methods.size == 1)
     assert(ret[Foo::Bar].i_methods.first == :m2)
