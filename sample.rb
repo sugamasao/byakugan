@@ -1,9 +1,3 @@
-# byakugan
-byakugan is "白眼"
-
-sample.rb
-
-```ruby
 require_relative 'byakugan'
 
 module Foo
@@ -34,14 +28,3 @@ b.watch!
 Foo::Bar.new.m1
 # call m3
 Foo::Bar.m4
-```
-
-output by sample.rb
-
-```console
-% ruby sample.rb
-:hi
-**** show unused methods ***
-unused instance_method : Foo::Bar#m2
-unused class method    : Foo::Bar.m3
-```
