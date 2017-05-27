@@ -1,14 +1,15 @@
 class Byakugan
+  class TargetMethod < Struct.new(:i_methods, :c_methods);end
   def initialize(auto_show_output: true)
     @target = {}
     @auto_show_output = auto_show_output
   end
 
   def register(klass)
-    @target[klass] = {
-      i_methods: klass.instance_methods(false),
-      c_methods: klass.methods(false),
-    }
+    @target[klass] = TargetMethod.new(
+      klass.instance_methods(false),
+      klass.methods(false),
+    )
   end
 
   def watch!
@@ -31,13 +32,13 @@ class Byakugan
   def check_instance_method(tp)
     target = @target[tp.defined_class]
     return if target.nil?
-    target[:i_methods].delete(tp.method_id)
+    target.i_methods.delete(tp.method_id)
   end
 
   def check_class_method(tp)
     target = @target[tp.self]
     return if target.nil?
-    target[:c_methods].delete(tp.method_id)
+    target.c_methods.delete(tp.method_id)
   end
 
   def output
@@ -48,10 +49,10 @@ class Byakugan
     def output(target)
       puts '**** show unused methods ***'
       target.each do |klass, methods|
-        methods[:i_methods].each do |m|
+        methods.i_methods.each do |m|
           puts "unused instance_method : #{klass}##{ m }"
         end
-        methods[:c_methods].each do |m|
+        method.c_methods.each do |m|
           puts "unused class method    : #{klass}.#{ m }"
         end
       end

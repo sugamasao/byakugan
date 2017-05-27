@@ -32,9 +32,9 @@ class ByakuganTest < Test::Unit::TestCase
     b.stop!
     
     ret = b.instance_variable_get(:@target)
-    assert(ret[Foo::Bar][:i_methods].size == 1)
-    assert(ret[Foo::Bar][:i_methods].first == :m2)
-    assert(ret[Foo::Bar][:c_methods].size == 1)
-    assert(ret[Foo::Bar][:c_methods].first == :m3)
+    assert(ret[Foo::Bar].i_methods.size == 1)
+    assert(ret[Foo::Bar].i_methods.first == :m2)
+    assert(ret[Foo::Bar].c_methods.size == 1)
+    assert(ret[Foo::Bar].c_methods.first == :m3)
   end
 end
