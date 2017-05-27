@@ -1,4 +1,4 @@
-require_relative 'byakugan'
+require_relative 'lib/byakugan'
 
 module Foo
   class Bar
