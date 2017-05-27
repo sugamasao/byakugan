@@ -4,7 +4,7 @@ byakugan is "白眼"
 sample.rb
 
 ```ruby
-require_relative 'byakugan'
+require_relative 'lib/byakugan'
 
 module Foo
   class Bar
