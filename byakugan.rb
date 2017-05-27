@@ -9,7 +9,6 @@ class Byakugan
       i_methods: klass.instance_methods(false),
       c_methods: klass.methods(false),
     }
-    p @target
   end
 
   def watch!
