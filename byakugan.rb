@@ -52,7 +52,7 @@ class Byakugan
         methods.i_methods.each do |m|
           puts "unused instance_method : #{klass}##{ m }"
         end
-        method.c_methods.each do |m|
+        methods.c_methods.each do |m|
           puts "unused class method    : #{klass}.#{ m }"
         end
       end
